@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Título: {{ titulo }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="my-3 p-2" style="background-color:#efefee;">
+                    <h2 class="p-1">Titulo</h2>
+                </div>
+                <div style="box-shadow: 2px 3px 9px 4px rgba(0,0,0,0.04);">
+                    <div class="q-container-show p-4">
+                        <div class="row">
+                            <div class="col">
+                                <div class="q-display p-3">
+                                    <img src="https://old.officialpsds.com/stocks/ALLEY-stock1502.jpg" alt="imagen de prueba">
+                                    <div class="pt-3">
+                                        <i class="fa fa-quote-left mr-3"></i>
+                                        <p class="d-inline">Descripción</p>
+                                        <p class="pt-4"><strong>--Usuario</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

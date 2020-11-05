@@ -1,0 +1,45 @@
+Primero que nada, este proyecto utiliza los distintos plug ins:
+
+-PHP Toolbox
+-PHP Annotations
+-Symfony Support
+
+Y utiliza los distintos lenguajes y programas:
+
+-PHP
+-Symfony
+-JavaScript
+-Docker (Importante tener instalado)
+-mySQL (Importante tener instalado)
+-JQuery
+-Bootstrap
+-node (Importante tener instalado)
+-yarn (Importante tener instalado)
+-Twig
+-Git
+
+Recordar activar Symfony en el proyecto en las propiedades del proyecto:
+Settings/Languague & Frameworks/Symfony ---- Enable plug in for this project
+
+Recordar cambiar la configuración web del proyecto a public en caso de que no esté configurada ya
+Settings/Languague & Frameworks/PHP->Symfony ---- web directory "public"
+
+Comandos que debes utilizar en orden para utilizar este proyecto:
+
+composer require annotations (Rutas Inteligentes)
+composer require sec-checker (Seguridad)
+composer require template (Twig)                     https://twig.symfony.com/ para leer documentación
+composer require profiler --dev (Herramienta profiler)
+composer require debug (Herramienta para debug complementaria a profiler)
+composer require symfony/asset (prefix automatico para rutas)
+composer require encore (Desarrollo Front End)
+
+LUEGO DE INSTALAR EL ENCORE, EJECUTAR EL SIGUIENTE COMANDO PARA LA INSTALACION DE WEBPACK ENCORE:
+yarn install
+
+yarn add jquery --dev (Añadir JQuery al proyecto con node)
+yarn add bootstrap --dev (Añadir Bootstrap al proyecto con node)
+
+
+
+

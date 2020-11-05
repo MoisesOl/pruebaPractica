@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="jumbotron-img jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Las Mejores Fotografías</h1>
+            <p class="lead">¡Fotos subidas por usuarios de todo el mundo!</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 d-flex align-items-stretch">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top q-container-show" src="{{ asset('images/tisha.png') }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Ejemplo de texto que ira junto a la imagen.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 d-flex align-items-stretch">
+                <div class="card" style="width: 18rem;">
+                    <a href="https://www.google.com">
+                        <img class="card-img-top q-container-show" src="{{ asset('images/tisha.png') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Mira que bonito está mi gato.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 d-flex align-items-stretch">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top q-container-show" src="{{ asset('images/tisha.png') }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Gato horrible me cae mal, te vas reportado a peta papu nos vemos en la carcel crack
+                        saluda al juez de mi parte</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
