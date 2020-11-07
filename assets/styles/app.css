@@ -1,5 +1,6 @@
 @import "~bootstrap";
 
+
 body {
     font-family: spartan;
     color: #444;
@@ -129,3 +130,63 @@ fieldset[disabled] .btn-question.active {
 footer {
     background-color: #efefee;
 }
+
+.carousel-item.principal {
+    padding-left: 25%;
+}
+
+@media screen and (max-width: 475px) {
+
+    .carousel-item.principal {
+        padding-left: 33%;
+    }
+
+    button.btn.btn-primary {
+        margin-bottom: 3%;
+    }
+
+}
+
+/* CSS para las imagenes en la página de landing */
+.imagen-carousel{
+    display: block;
+    max-width:800px;
+    max-height:450px;
+    width: auto;
+    height: auto;
+}
+
+@media screen and (max-width:500px){
+    .imagen-carousel{
+        display: block;
+        max-width:300px;
+        max-height:500px;
+        width: auto;
+        height: auto;
+    }
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+.imagen-thumbnail{
+    max-width:150px;
+    max-height:200px;
+    width: auto;
+    height: auto;
+    margin:auto;
+
+
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.imagen-thumbnail:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+

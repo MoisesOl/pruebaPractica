@@ -12,4 +12,8 @@ import './styles/app.css';
 
 import $ from 'jquery';
 
-console.log('Hello Webpack Encore! Edit me in assets/app.js');
+
+function sendCarousel(id) {
+    var idCarousel = parseInt(id);
+    $('#carouselExampleeControls').carousel(idCarousel);
+}
