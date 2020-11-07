@@ -41,6 +41,8 @@ yarn install
 yarn add jquery --dev (Añadir JQuery al proyecto con node)
 yarn add bootstrap --dev (Añadir Bootstrap al proyecto con node)
 
+composer require maker --dev (Herramienta util a la hora de crear objetos de manera rápida y sencilla)
+composer require orm ()
 
 
 

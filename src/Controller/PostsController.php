@@ -16,7 +16,15 @@ class PostsController extends AbstractController
      * @Route("/")
      */
     public function homepage(){
-        return $this->render('posts/landing.html.twig');
+
+        $datos = (object)[
+            "Id"=>'id 1',
+            "Titulo"=>'Titulo 1',
+            "Descripcion"=>'Descripcion 1',
+            "Imagen"=>'images/stock2.jpg'
+        ];
+
+        return $this->render('posts/homepage.html.twig',[$datos]);
     }
 
     /**
