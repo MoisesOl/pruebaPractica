@@ -11,17 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f33db18f-7326-4aed-b826-1279759fe372" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/posts/login.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gallerie.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gallerie.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LEEME" beforeDir="false" afterPath="$PROJECT_DIR$/LEEME" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/posts/landing.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/homepage.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/posts/homepage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/homepage.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +153,7 @@
       <updated>1604593141791</updated>
       <workItem from="1604593142953" duration="18193000" />
       <workItem from="1604694505330" duration="20729000" />
-      <workItem from="1604779855164" duration="4753000" />
+      <workItem from="1604779855164" duration="18540000" />
     </task>
     <servers />
   </component>
@@ -188,6 +185,10 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="417" y="87" key="NewPhpClassDialog/0.0.1360.728@0.0.1360.728" timestamp="1604594412410" />
+    <state x="463" y="66" key="RollbackChangesDialog" timestamp="1604788576048">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="463" y="66" key="RollbackChangesDialog/0.0.1360.728@0.0.1360.728" timestamp="1604788576048" />
     <state x="181" y="9" key="SettingsEditor" timestamp="1604709892627">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
@@ -196,13 +197,17 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="401" y="105" width="540" height="524" key="StructurePopup/0.0.1360.728@0.0.1360.728" timestamp="1604706273828" />
-    <state x="272" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604714834469">
+    <state x="272" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604785808831">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="272" y="97" key="Vcs.Push.Dialog.v2/0.0.1360.728@0.0.1360.728" timestamp="1604714834469" />
+    <state x="272" y="97" key="Vcs.Push.Dialog.v2/0.0.1360.728@0.0.1360.728" timestamp="1604785808831" />
     <state x="285" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604615248293">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="285" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1360.728@0.0.1360.728" timestamp="1604615248293" />
+    <state x="343" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1604794226812">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="343" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1360.728@0.0.1360.728" timestamp="1604794226812" />
   </component>
 </project>

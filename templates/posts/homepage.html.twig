@@ -8,15 +8,11 @@
     </div>
     <div class="container">
         <div class="row col-12">
-            <img class="card imagen-thumbnail" type="button" id="0" onClick="sendCarousel(this.id)"
-                 src="{{ asset('images/stock2.jpg') }}" data-toggle="modal"
-                 data-target="#exampleModalLong" alt="Card image cap" data-slide="0">
-            <img class="card imagen-thumbnail" type="button" id="1" onClick="sendCarousel(this.id)"
-                 src="{{ asset('images/alley.jpg') }}" data-toggle="modal"
-                 data-target="#exampleModalLong" alt="Card image cap" data-slide="0">
-            <img class="card imagen-thumbnail" type="button" id="2" onClick="sendCarousel(this.id)"
-                 src="{{ asset('images/img_nature_wide.jpg') }}" data-toggle="modal"
-                 data-target="#exampleModalLong" alt="Card image cap" data-slide="0">
+            {% for post in posts %}
+                <img class="card imagen-thumbnail" type="button" id="{{ post.id }}" onClick="sendCarousel(this.id)"
+                     src="{{ post.imagen }}" data-toggle="modal" onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'"
+                     data-target="#exampleModalLong" alt="Card image cap" data-slide="0">
+            {% endfor %}
         </div>
 
         {# testeando codigo #}
@@ -46,15 +42,37 @@
                     <div class="modal-body">
                         <div id="carouselExampleeControls" class="carousel slide">
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block imagen-carousel center" src="{{ asset('images/stock2.jpg') }}" alt="First slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block imagen-carousel center" src="{{ asset('images/alley.jpg') }}" alt="Second slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block imagen-carousel center" src="{{ asset('images/img_nature_wide.jpg') }}" alt="Third slide">
-                                </div>
+
+                            {% set myVal = 0 %}
+
+                            {# Generando el carousel con las imagenes respectivas #}
+                            {% for post in posts %}
+
+                                {# Como este programa llama por id ordenadamente de manera ascendente,
+                                 utilizo ese id para relacionarlo con la imagen del carousel, es decir,
+                                 el index 0 del carousel es igual al index 0 del array Object cuando se
+                                 cargan las imagenes, e inicializo con un contador la primera imagen
+                                 del carousel en active para que el carousel funcione correctamente
+                                #}
+
+                                {% if myVal == 0 %}
+
+                                    <div class="carousel-item active">
+                                        {{ post.titulo }}
+                                        <br>
+                                        <img class="d-block imagen-carousel center mt-3" src="{{ post.imagen }}"
+                                        onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'">
+                                    </div>
+
+                                    {% set myVal = 1 %}
+                                {% else %}
+                                    <div class="carousel-item">
+                                        {{ post.titulo }}
+                                        <img class="d-block imagen-carousel center mt-3" src="{{ post.imagen }}"
+                                        onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'">
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleeControls" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -73,9 +91,12 @@
 
 {% block javascripts %}
     <script>
+    //funcion que redirecciona el index del carousel a la imagen clickeada por el usuario
+    //tiene como parametro el id de la foto, el cual está directamente relacionado al index
+    //del carousel
         function sendCarousel(id) {
             var idCarousel = parseInt(id);
-            $('#carouselExampleeControls').carousel(idCarousel);
+            $('#carouselExampleeControls').carousel(idCarousel-1);
         }
     </script>
 {% endblock %}
