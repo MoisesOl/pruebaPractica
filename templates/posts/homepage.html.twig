@@ -8,10 +8,13 @@
     </div>
     <div class="container">
         <div class="row col-12">
+            {# contador para enlazar el id del post con el index del carousel #}
+            {% set contador = 0 %}
             {% for post in posts %}
-                <img class="card imagen-thumbnail" type="button" id="{{ post.id }}" onClick="sendCarousel(this.id)"
+                <img class="card imagen-thumbnail" type="button" id="{{ contador }}" onClick="sendCarousel(this.id)"
                      src="{{ post.imagen }}" data-toggle="modal" onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'"
                      data-target="#exampleModalLong" alt="Card image cap" data-slide="0">
+                     {% set contador = contador + 1 %}
             {% endfor %}
         </div>
 
@@ -48,28 +51,32 @@
                             {# Generando el carousel con las imagenes respectivas #}
                             {% for post in posts %}
 
-                                {# Como este programa llama por id ordenadamente de manera ascendente,
-                                 utilizo ese id para relacionarlo con la imagen del carousel, es decir,
-                                 el index 0 del carousel es igual al index 0 del array Object cuando se
-                                 cargan las imagenes, e inicializo con un contador la primera imagen
-                                 del carousel en active para que el carousel funcione correctamente
+                                {# las imagenes listadas en forma de tarjeta son mostradas en el homepage
+                                con un id igual al contador que se inicializa en 0, esto es para poder
+                                enlazar las imagenes de manera sencilla (si el id del post = 0, se mostrará
+                                la imagen del carousel con index 0
                                 #}
 
                                 {% if myVal == 0 %}
 
                                     <div class="carousel-item active">
-                                        {{ post.titulo }}
-                                        <br>
+                                        <h5>{{ post.titulo|markdown }}</h5>
                                         <img class="d-block imagen-carousel center mt-3" src="{{ post.imagen }}"
                                         onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'">
+                                        <br>
+                                        <i class="fa fa-quote-left mr-3"></i>
+                                        <div>{{ post.descripcion|markdown }}</div>
                                     </div>
 
                                     {% set myVal = 1 %}
                                 {% else %}
                                     <div class="carousel-item">
-                                        {{ post.titulo }}
+                                        {{ post.titulo|markdown }}
                                         <img class="d-block imagen-carousel center mt-3" src="{{ post.imagen }}"
                                         onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'">
+                                        <br>
+                                        <i class="fa fa-quote-left mr-3"></i>
+                                        <div>{{ post.descripcion|markdown }}</div>
                                     </div>
                                 {% endif %}
                             {% endfor %}
@@ -87,16 +94,17 @@
                 </div>
             </div>
         </div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
     <script>
     //funcion que redirecciona el index del carousel a la imagen clickeada por el usuario
-    //tiene como parametro el id de la foto, el cual está directamente relacionado al index
+    //tiene como parametro el contador de la foto, el cual está directamente relacionado al index
     //del carousel
         function sendCarousel(id) {
             var idCarousel = parseInt(id);
-            $('#carouselExampleeControls').carousel(idCarousel-1);
+            $('#carouselExampleeControls').carousel(idCarousel);
         }
     </script>
 {% endblock %}

@@ -1,27 +1,76 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Título: {{ titulo }}{% endblock %}
+{% block title %}Usuario: {{ usuario }}{% endblock %}
 
 {% block body %}
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="my-3 p-2" style="background-color:#efefee;">
-                    <h2 class="p-1">Titulo</h2>
+                <div class="my-3 p-2">
+                    <h2 class="p-1">{{ usuario }}</h2>
+                    <hr>
+                    <h5 class="p-1">Fotos subidas</h5>
                 </div>
-                <div style="box-shadow: 2px 3px 9px 4px rgba(0,0,0,0.04);">
-                    <div class="q-container-show p-4">
-                        <div class="row">
-                            <div class="col">
-                                <div class="q-display p-3">
-                                    <img src="https://old.officialpsds.com/stocks/ALLEY-stock1502.jpg" alt="imagen de prueba">
-                                    <div class="pt-3">
-                                        <i class="fa fa-quote-left mr-3"></i>
-                                        <p class="d-inline">Descripción</p>
-                                        <p class="pt-4"><strong>--Usuario</strong></p>
-                                    </div>
+
+            </div>
+        </div>
+        <div class="row col-12">
+            <img class="card imagen-thumbnail" type="button" id="1" onClick="sendCarousel(this.id)"
+                 src="{{ asset('images/alley.jpg') }}" data-toggle="modal" onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'"
+                 data-target="#exampleModalLong" alt="Card image cap" data-slide="0">
+            <img class="card imagen-thumbnail" type="button" id="2" onClick="sendCarousel(this.id)"
+                 src="{{ asset('images/img_nature_wide.jpg') }}" data-toggle="modal" onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'"
+                 data-target="#exampleModalLong" alt="Card image cap" data-slide="0">
+        </div>
+
+        {# testeando codigo #}
+
+        <div class="container">
+            <div id="carouselExampleControls" class="carousel slide">
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="carouselExampleeControls" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <h3 class="pt-3">Aquí irá el titulo 1</h3>
+                                    <hr>
+                                    <img class="d-block imagen-carousel center mt-3" src="{{ asset('images/alley.jpg') }}"
+                                         onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'">
+                                    <hr>
+                                    <i class="fa fa-quote-left mr-3"></i>
+                                    Aquí irá la descripcion 1
+                                </div>
+                                <div class="carousel-item">
+                                    <h3 class="pt-3">Aquí irá el titulo 2</h3>
+                                    <hr>
+                                    <img class="d-block imagen-carousel center mt-3" src="{{ asset('images/img_nature_wide.jpg') }}"
+                                         onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'">
+                                    <hr>
+                                    <i class="fa fa-quote-left mr-3"></i>
+                                    Aquí irá la descripcion 2
                                 </div>
                             </div>
+                            <a class="carousel-control-prev" href="#carouselExampleeControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleeControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                     </div>
                 </div>

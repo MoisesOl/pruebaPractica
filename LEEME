@@ -10,12 +10,11 @@ Y utiliza los distintos lenguajes y programas:
 -PHP
 -Symfony
 -JavaScript
--Docker (Importante tener instalado)
 -mySQL (Importante tener instalado)
 -JQuery
 -Bootstrap
--node (Importante tener instalado)
--yarn (Importante tener instalado)
+-node
+-yarn
 -Twig
 -Git
 
@@ -42,7 +41,8 @@ yarn add jquery --dev (Añadir JQuery al proyecto con node)
 yarn add bootstrap --dev (Añadir Bootstrap al proyecto con node)
 
 composer require maker --dev (Herramienta util a la hora de crear objetos de manera rápida y sencilla)
-composer require orm ()
+composer require orm (Doctrine, BD)
+composer require knplabs/knp-markdown-bundle (Markdown filter para formatear la información)
 
 
 

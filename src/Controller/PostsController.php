@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Posts;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Bundle\MarkdownBundle\MarkdownParserInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,6 +23,8 @@ class PostsController extends AbstractController
 
         $repository = $entityManager->getRepository(Posts::class);
         $posts = $repository->findAll();
+
+        #Excepción para mostrar pantalla 404
         if (!$posts) {
             throw $this->createNotFoundException(sprintf('Oops!'));
         }
@@ -37,9 +40,9 @@ class PostsController extends AbstractController
     public function new(EntityManagerInterface $entityManager)
     {
         $post = new Posts();
-        $post->setTitulo('Item 3')
-            ->setDescripcion('Description 3')
-            ->setImagen('https://www.google.com');
+        $post->setTitulo('Item 4 <i>extra info</i>')
+            ->setDescripcion('Description 4, <i>extra info</i>')
+            ->setImagen('');
         $entityManager->persist($post);
         $entityManager->flush();
         return new Response(sprintf(
@@ -49,11 +52,11 @@ class PostsController extends AbstractController
     }
 
     /**
-     * @Route("/posts/{slug}")
+     * @Route("/posts/usuario/{slug}")
      */
     public function show($slug){
         return $this->render('posts/show.html.twig', [
-            'titulo' => ucwords(str_replace('-', ' ', $slug))
+            'usuario' => ucwords(str_replace('-', ' ', $slug))
         ]);
     }
 
