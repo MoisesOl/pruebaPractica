@@ -43,6 +43,7 @@ yarn add bootstrap --dev (Añadir Bootstrap al proyecto con node)
 composer require maker --dev (Herramienta util a la hora de crear objetos de manera rápida y sencilla)
 composer require orm (Doctrine, BD)
 composer require knplabs/knp-markdown-bundle (Markdown filter para formatear la información)
+composer require stof/doctrine-extensions-bundle (Extensiones para doctrine, urlizar las imagenes)
 
 
 

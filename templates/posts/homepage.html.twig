@@ -12,7 +12,7 @@
             {% set contador = 0 %}
             {% for post in posts %}
                 <img class="card imagen-thumbnail" type="button" id="{{ contador }}" onClick="sendCarousel(this.id)"
-                     src="{{ post.imagen }}" data-toggle="modal" onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'"
+                     src="{{ asset(post.imagen) }}" data-toggle="modal" onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'"
                      data-target="#exampleModalLong" alt="Card image cap" data-slide="0">
                      {% set contador = contador + 1 %}
             {% endfor %}

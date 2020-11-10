@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Posts;
 use Doctrine\ORM\EntityManagerInterface;
+use Gedmo\Sluggable\Util\Urlizer;
 use Knp\Bundle\MarkdownBundle\MarkdownParserInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Console\Question\Question;
@@ -77,32 +78,34 @@ class PostsController extends AbstractController
     /**
      * @Route ("/upload/post")
      */
-    public function new(Request $request)
+    public function new(Request $request, EntityManagerInterface $entityManager)
     {
         /** @var UploadedFile $uploadedFile */
         $uploadedFile = $request->files->get('image');
         $destination = $this->getParameter('kernel.project_dir').'/public/images';
 
         $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
-        $newFilename = $originalFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+        $newFilename = Urlizer::urlize($originalFilename).'-'.uniqid().'.'.$uploadedFile->guessExtension();
 
-        dd($uploadedFile->move(
+        $uploadedFile->move(
             $destination,
             $newFilename
-        ));
+        );
 
-        return $this->render('posts/upload.html.twig');
+        $post = new Posts();
+        $titulo = $request->get('titulo');
+        $descripcion = $request->get('descripcion');
+        $ruta = "images/".$newFilename;
 
-
-
-
-        /*$post = new Posts();
-        $post->setTitulo('Item 4 <i>extra info</i>')
-            ->setDescripcion('Description 4, <i>extra info</i>')
-            ->setImagen('');
+        $post->setTitulo($titulo)
+            ->setDescripcion($descripcion)
+            ->setImagen($ruta);
         $entityManager->persist($post);
         $entityManager->flush();
-        return new Response(sprintf(
+
+        return $this->render('posts/homepage.html.twig');
+
+        /*return new Response(sprintf(
             'Well hallo! El nuevo post tiene id: #%d',
             $post->getId()
         ));*/
