@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\Posts;
+use App\Repository\PostsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Gedmo\Sluggable\Util\Urlizer;
 use Knp\Bundle\MarkdownBundle\MarkdownParserInterface;
@@ -47,10 +48,21 @@ class PostsController extends AbstractController
     }
 
     /**
-     * @Route ("/login")
+     * @Route("/landing")
      */
-    public function login(){
-        return $this->render('posts/login.html.twig');
+    public function landing(EntityManagerInterface $entityManager, PostsRepository $repository){
+
+        $repository = $entityManager->getRepository(Posts::class);
+        $posts = $repository->findAll();
+
+        #Excepción para mostrar pantalla 404
+        if (!$posts) {
+            throw $this->createNotFoundException(sprintf('Oops!'));
+        }
+
+        return $this->render('posts/landing.html.twig', [
+            'posts' => $posts
+        ]);
     }
 
     /**
@@ -80,6 +92,9 @@ class PostsController extends AbstractController
      */
     public function new(Request $request, EntityManagerInterface $entityManager)
     {
+
+        #Codigo para descargar la imagen al servidor local y asignarle un tipo de archivo considerando su contenido
+        #-----------------------------------------------------------------------------------------------------------
         /** @var UploadedFile $uploadedFile */
         $uploadedFile = $request->files->get('image');
         $destination = $this->getParameter('kernel.project_dir').'/public/images';
@@ -91,6 +106,7 @@ class PostsController extends AbstractController
             $destination,
             $newFilename
         );
+        #-----------------------------------------------------------------------------------------------------------
 
         $post = new Posts();
         $titulo = $request->get('titulo');
@@ -100,10 +116,16 @@ class PostsController extends AbstractController
         $post->setTitulo($titulo)
             ->setDescripcion($descripcion)
             ->setImagen($ruta);
+
+        $repository = $entityManager->getRepository(Posts::class);
+        $posts = $repository->findAll();
+
         $entityManager->persist($post);
         $entityManager->flush();
 
-        return $this->render('posts/homepage.html.twig');
+        return $this->render('posts/homepage.html.twig', [
+            'posts' => $posts
+        ]);
 
         /*return new Response(sprintf(
             'Well hallo! El nuevo post tiene id: #%d',

@@ -11,6 +11,12 @@ body {
     color: #fff;
 }
 
+.jumbotron-img-landing {
+    background: rgb(74, 143, 255);
+    background: linear-gradient(302deg, rgba(74, 143, 255) 16%, rgba(51,61,81,1) 97%);
+    color: #fff;
+}
+
 .q-container {
     border-top-right-radius: .25rem;
     border-top-left-radius: .25rem;
