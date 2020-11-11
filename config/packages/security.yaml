@@ -19,6 +19,12 @@ security:
             guard:
                 authenticators:
                     - App\Security\LoginFormAuthenticator
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 2592000 # 30 dias en segundos
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
