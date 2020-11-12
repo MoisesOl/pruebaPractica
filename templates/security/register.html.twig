@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}¡Regístrate!{% endblock %}
+
+{% block body %}
+    <div class="col-lg-8 mb-4 ml-auto mr-auto">
+
+        <!-- Card -->
+        <div class="card">
+
+            <!-- Card header -->
+            <div class="card-header">
+                <h5 class="mb-0 font-weight-bold">Regístrate</h5>
+            </div>
+            <!-- Card header -->
+
+            <!-- Card content -->
+            <div class="card-body card-body-cascade text-center">
+
+                <!-- Edit Form -->
+                <form method="POST" action="{{ path('app_security_registeruser') }}">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control" name="email" placeholder="Correo Electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fullname">Nombre Completo</label>
+                        <input type="text" class="form-control" name="fullname" placeholder="Nombre Completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Regístrame</button>
+                </form>
+
+            </div>
+            <!-- Card content -->
+
+        </div>
+        <!-- Card -->
+
+    </div>
+    <!-- Second column -->
+{% endblock %}

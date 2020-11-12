@@ -67,29 +67,32 @@ class PostsController extends AbstractController
      */
     public function new(Request $request, EntityManagerInterface $entityManager, UserInterface $user)
     {
-
         #Codigo para descargar la imagen al servidor local y asignarle un tipo de archivo considerando su contenido
         #-----------------------------------------------------------------------------------------------------------
         /** @var UploadedFile $uploadedFile */
         $uploadedFile = $request->files->get('image');
-        $destination = $this->getParameter('kernel.project_dir').'/public/images';
+        $destination = $this->getParameter('kernel.project_dir') . '/public/images';
 
         $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
 
         #Dandole un id unico por si se sube la misma foto mas de dos veces
-        $newFilename = Urlizer::urlize($originalFilename).'-'.uniqid().'.'.$uploadedFile->guessExtension();
+        $newFilename = Urlizer::urlize($originalFilename) . '-' . uniqid() . '.' . $uploadedFile->guessExtension();
 
+        #Descargando la imagen en el servidor local y almacenando en la BD el link de la ubicación de la imagen para
+        #tiempos de carga mas rápidos
         $uploadedFile->move(
             $destination,
             $newFilename
         );
         #-----------------------------------------------------------------------------------------------------------
 
-        $post = new Posts();
+        #Llamando a los datos para construir el post
         $titulo = $request->get('titulo');
         $descripcion = $request->get('descripcion');
-        $ruta = "images/".$newFilename;
+        $ruta = "images/" . $newFilename;
 
+        #Construyendo el post
+        $post = new Posts();
 
         $post->setTitulo($titulo)
             ->setDescripcion($descripcion)

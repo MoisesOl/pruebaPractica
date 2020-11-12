@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}¡Bienvenido!{% endblock %}
+
 {% block body %}
-    <div class="jumbotron-img-landing jumbotron jumbotron-fluid">
+    <div class="jumbotron-img-landing jumbotron jumbotron-fluid mt-3">
         <div class="container" >
             <h1 class="display-4">Bienvenido</h1>
             <p class="lead">¡Sube, comparte y visualiza fotos de todo el mundo!</p>
@@ -72,7 +75,7 @@
                                         {% set myVal = 1 %}
                                     {% else %}
                                         <div class="carousel-item">
-                                            {{ post.titulo|markdown }}
+                                            <h5>{{ post.titulo|markdown }}</h5>
                                             <hr>
                                             <img class="d-block imagen-carousel center mt-3" src="{{ asset(post.imagen) }}"
                                                  onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'">

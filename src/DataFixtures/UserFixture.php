@@ -18,7 +18,7 @@ class UserFixture extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        // crear 5 usuarios
+        // crear 5 usuarios (outdated)
         for ($i = 0; $i < 5; $i++) {
             $user = new User();
             $user->setEmail(sprintf('spacebar%d@example.com',$i));

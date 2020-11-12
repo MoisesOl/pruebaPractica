@@ -5,6 +5,78 @@ body {
     color: #444;
 }
 
+.carousel-item.principal {
+    padding-left: 25%;
+}
+
+@media screen and (max-width: 475px) {
+
+    .carousel-item.principal {
+        padding-left: 33%;
+    }
+
+    button.btn.btn-primary {
+        margin-bottom: 3%;
+    }
+
+}
+
+/* CSS para las imagenes en el carousel para que se muestren en su ratio original y reducidas en caso de ser
+ enormes*/
+.imagen-carousel{
+    display: block;
+    max-width:800px;
+    max-height:400px;
+    width: auto;
+    height: auto;
+}
+
+@media screen and (max-width:500px){
+    .imagen-carousel{
+        display: block;
+        max-width:300px;
+        max-height:400px;
+        width: auto;
+        height: auto;
+    }
+}
+
+@media screen and (max-width:992px) and (min-width: 501px){
+    .imagen-carousel{
+        display: block;
+        max-width:500px;
+        max-height:400px;
+        width: auto;
+        height: auto;
+    }
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+/* css para hacer que la imagen thumbnail se vea en 150x200 */
+.imagen-thumbnail{
+    width: 150px;
+    height: 200px;
+    margin:auto;
+
+
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+/* css oara hacer que al pasar el mouse por encima de la imagen thumbnail se vea como el borde de la imager
+ cambia de color para dar dinamismo*/
+.imagen-thumbnail:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+/* css importado para que la página se vea un poco mas atractiva */
 .jumbotron-img {
     background: rgb(237,116,88);
     background: linear-gradient(302deg, rgba(237,116,88,1) 16%, rgba(51,61,81,1) 97%);
@@ -134,73 +206,4 @@ fieldset[disabled] .btn-question.active {
 
 footer {
     background-color: #efefee;
-}
-
-.carousel-item.principal {
-    padding-left: 25%;
-}
-
-@media screen and (max-width: 475px) {
-
-    .carousel-item.principal {
-        padding-left: 33%;
-    }
-
-    button.btn.btn-primary {
-        margin-bottom: 3%;
-    }
-
-}
-
-/* CSS para las imagenes en la página de landing */
-.imagen-carousel{
-    display: block;
-    max-width:800px;
-    max-height:400px;
-    width: auto;
-    height: auto;
-}
-
-@media screen and (max-width:500px){
-    .imagen-carousel{
-        display: block;
-        max-width:300px;
-        max-height:400px;
-        width: auto;
-        height: auto;
-    }
-}
-
-@media screen and (max-width:992px) and (min-width: 501px){
-    .imagen-carousel{
-        display: block;
-        max-width:500px;
-        max-height:400px;
-        width: auto;
-        height: auto;
-    }
-}
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: auto;
-}
-
-.imagen-thumbnail{
-    max-width:150px;
-    max-height:200px;
-    width: auto;
-    height: auto;
-    margin:auto;
-
-
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-}
-
-.imagen-thumbnail:hover {
-    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }

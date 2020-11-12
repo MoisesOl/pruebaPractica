@@ -46,7 +46,6 @@ composer require knplabs/knp-markdown-bundle (Markdown filter para formatear la 
 composer require stof/doctrine-extensions-bundle (Extensiones para doctrine, urlizar las imagenes)
 composer require security (login)
 composer require --dev orm-fixtures (Rellenar la BD con datos falsos de práctica, me permitió ingresar contraseñas
-codificadas, fue su mayor funcionalidad)
-
+codificadas)
 
 
