@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Usuario: {{ usuario }}{% endblock %}
+{% block title %}Usuario: {{ usuario.fullname }}{% endblock %}
 
 {% block body %}
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="my-3 p-2">
-                    <h2 class="p-1">{{ usuario }}</h2>
+                    <h2 class="p-1">{{ usuario.fullname }}</h2>
                     <hr>
                     <h5 class="p-1">Fotos subidas</h5>
                 </div>
@@ -15,12 +15,14 @@
             </div>
         </div>
         <div class="row col-12">
-            <img class="card imagen-thumbnail" type="button" id="1" onClick="sendCarousel(this.id)"
-                 src="{{ asset('images/alley.jpg') }}" data-toggle="modal" onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'"
-                 data-target="#exampleModalLong" alt="Card image cap" data-slide="0">
-            <img class="card imagen-thumbnail" type="button" id="2" onClick="sendCarousel(this.id)"
-                 src="{{ asset('images/img_nature_wide.jpg') }}" data-toggle="modal" onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'"
-                 data-target="#exampleModalLong" alt="Card image cap" data-slide="0">
+            {# contador para enlazar el id del post con el index del carousel #}
+            {% set contador = 0 %}
+            {% for post in posts %}
+                <img class="card imagen-thumbnail" type="button" id="{{ contador }}" onClick="sendCarousel(this.id)"
+                     src="{{ asset(post.imagen) }}" data-toggle="modal" onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'"
+                     data-target="#exampleModalLong" alt="Card image cap" data-slide="0">
+                {% set contador = contador + 1 %}
+            {% endfor %}
         </div>
 
         {# testeando codigo #}
@@ -44,24 +46,50 @@
                     <div class="modal-body">
                         <div id="carouselExampleeControls" class="carousel slide">
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <h3 class="pt-3">Aquí irá el titulo 1</h3>
-                                    <hr>
-                                    <img class="d-block imagen-carousel center mt-3" src="{{ asset('images/alley.jpg') }}"
-                                         onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'">
-                                    <hr>
-                                    <i class="fa fa-quote-left mr-3"></i>
-                                    Aquí irá la descripcion 1
-                                </div>
-                                <div class="carousel-item">
-                                    <h3 class="pt-3">Aquí irá el titulo 2</h3>
-                                    <hr>
-                                    <img class="d-block imagen-carousel center mt-3" src="{{ asset('images/img_nature_wide.jpg') }}"
-                                         onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'">
-                                    <hr>
-                                    <i class="fa fa-quote-left mr-3"></i>
-                                    Aquí irá la descripcion 2
-                                </div>
+
+                                {% set myVal = 0 %}
+
+                                {# Generando el carousel con las imagenes respectivas #}
+                                {% for post in posts %}
+
+                                    {# las imagenes listadas en forma de tarjeta son mostradas en el homepage
+                                con un id igual al contador que se inicializa en 0, esto es para poder
+                                enlazar las imagenes de manera sencilla (si el id del post = 0, se mostrará
+                                la imagen del carousel con index 0
+                                    #}
+
+                                    {% if myVal == 0 %}
+                                        <div class="carousel-item active">
+                                            <h5>{{ post.titulo|markdown }}</h5>
+                                            <hr>
+                                            <img class="d-block imagen-carousel center mt-3" src="{{ asset(post.imagen) }}"
+                                                 onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'">
+                                            <br>
+                                            <div class="text-center"><a href="/user/post/{{ post.user.slug }}">{{ post.user.fullname }}</a></div>
+                                            <hr>
+                                            <div>{{ post.descripcion|markdown }}</div>
+                                            <div class="text-center">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                        {% set myVal = 1 %}
+                                    {% else %}
+                                        <div class="carousel-item">
+                                            {{ post.titulo|markdown }}
+                                            <hr>
+                                            <img class="d-block imagen-carousel center mt-3" src="{{ asset(post.imagen) }}"
+                                                 onerror="this.onerror=null; this.src='{{ asset('images/noImage.jpeg') }}'">
+                                            <br>
+                                            <div class="text-center"><a href="/user/post/{{ post.user.slug }}">{{ post.user.fullname }}</a></div>
+                                            <hr>
+                                            <div>{{ post.descripcion|markdown }}</div>
+                                            <div class="text-center">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleeControls" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -77,4 +105,16 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        //funcion que redirecciona el index del carousel a la imagen clickeada por el usuario
+        //tiene como parametro el contador de la foto, el cual está directamente relacionado al index
+        //del carousel
+        function sendCarousel(id) {
+            var idCarousel = parseInt(id);
+            $('#carouselExampleeControls').carousel(idCarousel);
+        }
+    </script>
 {% endblock %}

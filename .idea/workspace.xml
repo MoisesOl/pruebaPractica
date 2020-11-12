@@ -11,23 +11,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f33db18f-7326-4aed-b826-1279759fe372" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201112002728.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/PostFixture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gallerie.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gallerie.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201112004732.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201112025857.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201112030445.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/alley-stock1502-5faca7424b2bf.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LEEME" beforeDir="false" afterPath="$PROJECT_DIR$/LEEME" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/alley.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/img_nature_wide.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/noImage.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/php77F4.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/phpE692.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/stock2-5fa9e7140a4aa.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/stock2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/tisha.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/PostFixture.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Posts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/posts/homepage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/homepage.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/posts/landing.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/landing.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/posts/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -156,7 +160,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -182,7 +186,7 @@
       <workItem from="1604874683409" duration="8341000" />
       <workItem from="1604957438536" duration="13389000" />
       <workItem from="1605045216543" duration="12231000" />
-      <workItem from="1605130490369" duration="10688000" />
+      <workItem from="1605130490369" duration="21466000" />
     </task>
     <servers />
   </component>
@@ -210,14 +214,14 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="485" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1360.728@0.0.1360.728" timestamp="1605054752977" />
-    <state x="410" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605135087825">
+    <state x="410" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605143980479">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="410" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1360.728@0.0.1360.728" timestamp="1605135087825" />
-    <state x="460" y="119" key="FileChooserDialogImpl" timestamp="1604879861157">
+    <state x="410" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1360.728@0.0.1360.728" timestamp="1605143980479" />
+    <state x="460" y="119" key="FileChooserDialogImpl" timestamp="1605148696047">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="460" y="119" key="FileChooserDialogImpl/0.0.1360.728@0.0.1360.728" timestamp="1604879861157" />
+    <state x="460" y="119" key="FileChooserDialogImpl/0.0.1360.728@0.0.1360.728" timestamp="1605148696047" />
     <state x="417" y="87" key="NewPhpClassDialog" timestamp="1604594412410">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
@@ -234,10 +238,10 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="401" y="105" width="540" height="524" key="StructurePopup/0.0.1360.728@0.0.1360.728" timestamp="1604706273828" />
-    <state x="272" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605133410686">
+    <state x="272" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605141465690">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="272" y="97" key="Vcs.Push.Dialog.v2/0.0.1360.728@0.0.1360.728" timestamp="1605133410686" />
+    <state x="272" y="97" key="Vcs.Push.Dialog.v2/0.0.1360.728@0.0.1360.728" timestamp="1605141465690" />
     <state x="285" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604615248293">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
@@ -250,9 +254,9 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="336" y="162" key="run.anything.popup/0.0.1360.728@0.0.1360.728" timestamp="1605138070558" />
-    <state x="343" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1604794226812">
+    <state x="343" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1605145128062">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="343" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1360.728@0.0.1360.728" timestamp="1604794226812" />
+    <state x="343" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1360.728@0.0.1360.728" timestamp="1605145128062" />
   </component>
 </project>

@@ -18,16 +18,17 @@ class UserFixture extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        // create 5 products! Bam!
+        // crear 5 usuarios
         for ($i = 0; $i < 5; $i++) {
             $user = new User();
             $user->setEmail(sprintf('spacebar%d@example.com',$i));
-            $user->setFullname(sprintf('fullname ',$i));
+            $user->setFullname('fullname');
             $user->setRoles([]);
             $user->setPassword($this->passwordEncoder->encodePassword(
                 $user,
                 'engage'
             ));
+            $user->setSlug('fullname-'.uniqid());
             $manager->persist($user);
         }
 
