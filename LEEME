@@ -1,12 +1,15 @@
-Primero que nada, este proyecto utilizó los distintos plug ins:
+Primero que nada, este proyecto utilizó los distintos plug ins de PHP Storm:
 
 -PHP Toolbox
 -PHP Annotations
 -Symfony Support
+-.env files support
+-Handlebars/Mustache
+-Ideolog
 
 Y utiliza los distintos lenguajes y programas:
 
-05-11-2020
+12-11-2020
 -PHP
 -Symfony
 -JavaScript
@@ -28,7 +31,7 @@ Comandos que debes utilizar en orden para utilizar este proyecto:
 
 composer require annotations (Rutas Inteligentes)
 composer require sec-checker (Seguridad)
-composer require template (Twig)                     https://twig.symfony.com/ para leer documentación
+composer require template (Twig)                     (https://twig.symfony.com/ para leer documentación)
 composer require profiler --dev (Herramienta profiler)
 composer require debug (Herramienta para debug complementaria a profiler)
 composer require symfony/asset (prefix automatico para rutas)
