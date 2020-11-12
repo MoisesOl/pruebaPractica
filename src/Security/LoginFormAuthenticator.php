@@ -16,9 +16,12 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
+use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 {
+    use TargetPathTrait;
+
     private $router;
     private $csrfTokenManager;
     private $userPasswordEncoder;
@@ -39,8 +42,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     {
         // Haz tu trabajo solo cuando este en la pagina de login
         return $request->attributes->get('_route') === 'app_security_login'
-            && $request->isMethod('POST');;
-        die('Our authenticator is alive!');
+            && $request->isMethod('POST');
     }
 
     public function getCredentials(Request $request)
@@ -80,14 +82,16 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         // todo
     }
 
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
+    public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
         return new RedirectResponse($this->router->generate('app_posts_landing'));
     }
 
     public function start(Request $request, AuthenticationException $authException = null)
     {
-        // todo
+        #Se devuelve a la página de login en caso de que el usuario intente entrar en las páginas para usuarios mediante
+        #la URL
+        return new RedirectResponse($this->router->generate('app_security_login'));
     }
 
     public function supportsRememberMe()

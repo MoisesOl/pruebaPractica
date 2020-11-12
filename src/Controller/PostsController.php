@@ -9,6 +9,7 @@ use App\Repository\PostsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Gedmo\Sluggable\Util\Urlizer;
 use Knp\Bundle\MarkdownBundle\MarkdownParserInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -18,6 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 # extends AbstractController para obtener
 # shortcuts como return this->render
+
 class PostsController extends AbstractController
 {
     /**
@@ -39,7 +41,7 @@ class PostsController extends AbstractController
     }
 
     /**
-     * @Route("/posts/usuario/{slug}")
+     * @Route("/user/post/{slug}")
      */
     public function show($slug){
         return $this->render('posts/show.html.twig', [
@@ -48,17 +50,13 @@ class PostsController extends AbstractController
     }
 
     /**
-     * @Route("/landing")
+     * @Route("/user/landing")
+     * @IsGranted("ROLE_USER")
      */
     public function landing(EntityManagerInterface $entityManager, PostsRepository $repository){
 
         $repository = $entityManager->getRepository(Posts::class);
         $posts = $repository->findAll();
-
-        #Excepción para mostrar pantalla 404
-        if (!$posts) {
-            throw $this->createNotFoundException(sprintf('Oops!'));
-        }
 
         return $this->render('posts/landing.html.twig', [
             'posts' => $posts
@@ -66,29 +64,17 @@ class PostsController extends AbstractController
     }
 
     /**
-     * @Route ("/upload")
+     * @Route ("/user/upload")
+     * @IsGranted("ROLE_USER")
      */
     public function upload(EntityManagerInterface $entityManager, Request $request)
     {
         return $this->render('posts/upload.html.twig');
-
-
-
-
-        /*$post = new Posts();
-        $post->setTitulo('Item 4 <i>extra info</i>')
-            ->setDescripcion('Description 4, <i>extra info</i>')
-            ->setImagen('');
-        $entityManager->persist($post);
-        $entityManager->flush();
-        return new Response(sprintf(
-            'Well hallo! El nuevo post tiene id: #%d',
-            $post->getId()
-        ));*/
     }
 
     /**
-     * @Route ("/upload/post")
+     * @Route ("/user/upload/post")
+     * @IsGranted("ROLE_USER")
      */
     public function new(Request $request, EntityManagerInterface $entityManager)
     {
@@ -126,10 +112,5 @@ class PostsController extends AbstractController
         return $this->render('posts/homepage.html.twig', [
             'posts' => $posts
         ]);
-
-        /*return new Response(sprintf(
-            'Well hallo! El nuevo post tiene id: #%d',
-            $post->getId()
-        ));*/
     }
 }

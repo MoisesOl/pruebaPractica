@@ -1,4 +1,4 @@
-Primero que nada, este proyecto utiliza los distintos plug ins:
+Primero que nada, este proyecto utilizó los distintos plug ins:
 
 -PHP Toolbox
 -PHP Annotations
@@ -10,7 +10,7 @@ Y utiliza los distintos lenguajes y programas:
 -PHP
 -Symfony
 -JavaScript
--mySQL (Importante tener instalado)
+-mySQL
 -JQuery
 -Bootstrap
 -node
@@ -45,6 +45,8 @@ composer require orm (Doctrine, BD)
 composer require knplabs/knp-markdown-bundle (Markdown filter para formatear la información)
 composer require stof/doctrine-extensions-bundle (Extensiones para doctrine, urlizar las imagenes)
 composer require security (login)
+composer require --dev orm-fixtures (Rellenar la BD con datos falsos de práctica, me permitió ingresar contraseñas
+codificadas, fue su mayor funcionalidad)
 
 
 

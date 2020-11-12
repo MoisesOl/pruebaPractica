@@ -34,11 +34,6 @@ class User implements UserInterface
     private $fullname;
 
     /**
-     * @ORM\Column(type="string", length=20)
-     */
-    private $usertype;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $password;
@@ -122,18 +117,6 @@ class User implements UserInterface
     public function setFullname(string $fullname): self
     {
         $this->fullname = $fullname;
-
-        return $this;
-    }
-
-    public function getUsertype(): ?string
-    {
-        return $this->usertype;
-    }
-
-    public function setUsertype(string $usertype): self
-    {
-        $this->usertype = $usertype;
 
         return $this;
     }
