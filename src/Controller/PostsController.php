@@ -124,10 +124,6 @@ class PostsController extends AbstractController
             throw $this->createNotFoundException(sprintf('Oops! No se encontró al usuario'));
         }
 
-        if (!$user) {
-            throw $this->createNotFoundException(sprintf('Oops! No se encontraron posts'));
-        }
-
         return $this->render('posts/show.html.twig', [
             'posts' => $post,
             'usuario' => $user,
